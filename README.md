@@ -4,26 +4,26 @@ Proyecto de base de datos relacional y analítica  para la gestión y optimizaci
 
 Este proyecto contiene el desarrollo completo de una base de datos analítica orientada a un modelo de negocio fitness. Incluye la creación de la arquitectura, el proceso automático de desinfección de duplicados (ETL) y consultas de Inteligencia de Negocio.
 
-## 📁 Contenido del Repositorio
+## Contenido del Repositorio
 
-### 1️⃣ `01_schema.sql` (Infraestructura de Datos)
+### `01_schema.sql` (Infraestructura de Datos)
 *   Creación física de las tablas de dimensiones, la tabla central de hechos y sus restricciones de integridad referencial.
 *   **Vistas Analíticas:**
     *   `vista_ingresos_mensuales`: Automatización del cálculo de la salud financiera del gimnasio a nivel macro.
     *   `vista_asistencias_historicas`: Histórico estructurado temporalmente para análisis de tendencias anuales y mensuales.
 
-### 2️⃣ `02_limpieza.sql` (Proceso de Calidad de Datos - ETL)
+### `02_limpieza.sql` (Proceso de Calidad de Datos - ETL)
 *   **Desinfección Automática:** Eliminación avanzada de duplicados masivos utilizando funciones de ventana (`RANK() OVER`) particionadas por las claves del negocio.
 *   **Seguridad Transaccional:** Control de datos mediante bloques cerrados con `START TRANSACTION` y `COMMIT` para asegurar la persistencia limpia de los 140 registros reales.
 
-### 3️⃣ `03_consultas.sql` (Módulo de Inteligencia de Negocio)
+###  `03_consultas.sql` (Módulo de Inteligencia de Negocio)
 Set de consultas analíticas avanzadas agrupadas en pilares estratégicos para la toma de decisiones:
 *   **Métricas Operativas por Turnos:** Cruce con la dimensión tiempo para sustituir los IDs por los nombres de los turnos reales de trabajo.
 *   **Análisis Financiero y ROI de Trabajadores:** Transformación algorítmica de los minutos asistidos en horas laboradas para calcular costos de nómina estimados por entrenador ($25/hora) e impacto porcentual en los ingresos globales.
 *   **Retención de Clientes (Análisis de Churn):** Consultas lógicas para descubrir "Socios Fantasma" con asistencias críticas inferiores a la media para activar campañas de fidelización.
 *   **Optimización de Infraestructura:** Clasificación automática de sesiones (Exprés vs. Intensivas) y semáforos de tráfico ("Saturación Crítica", "Medio" y "Valle") según el volumen de asistencia.
 
-## 📊 Arquitectura del Modelo de Datos (Modelo Estrella)
+## Arquitectura del Modelo de Datos 
 
 El proyecto estructura la base de datos `gymdb` separando las características demográficas y operativas de las métricas de asistencia a través de un diseño en estrella perfectamente definido:
 
