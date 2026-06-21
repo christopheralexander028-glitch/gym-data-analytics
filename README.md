@@ -12,7 +12,7 @@ Este proyecto contiene el desarrollo completo de una base de datos analítica or
     *   `vista_ingresos_mensuales`: Automatización del cálculo de la salud financiera del gimnasio a nivel macro.
     *   `vista_asistencias_historicas`: Histórico estructurado temporalmente para análisis de tendencias anuales y mensuales.
 
-### `02_limpieza.sql` (Proceso de Calidad de Datos - ETL)
+### `02_limpieza.sql` (Proceso de Calidad de Datos)
 *   **Desinfección Automática:** Eliminación avanzada de duplicados masivos utilizando funciones de ventana (`RANK() OVER`) particionadas por las claves del negocio.
 *   **Seguridad Transaccional:** Control de datos mediante bloques cerrados con `START TRANSACTION` y `COMMIT` para asegurar la persistencia limpia de los 140 registros reales.
 
